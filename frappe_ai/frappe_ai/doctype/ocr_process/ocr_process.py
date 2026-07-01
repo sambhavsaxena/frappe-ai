@@ -39,13 +39,12 @@ class OCRProcess(Document):
 		if self.processing_mode == "Synchronous":
 			process_sync_ocr_job(self)
 		elif self.processing_mode == "Asynchronous":
+			self.db_set("status", "Queued")
 			frappe.enqueue(
 				"frappe_ai.document_ai.ocr.process_async_ocr_job",
 				queue="long",
-				timeout=21600, # 6 hours, as some PDFs can have a lot of pages and take a long time to process
-				enqueue_after_commit=True,
-				ocr_process=self,
+				timeout=300,
+				ocr_process_name=self.name,
 			)
-			self.db_set("status", "Queued")
 		else:
 			frappe.throw(_("Invalid processing mode."))

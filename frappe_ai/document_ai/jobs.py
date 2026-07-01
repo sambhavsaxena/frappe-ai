@@ -15,6 +15,8 @@ def check_ocr_process_status():
 	ocr_processes = frappe.get_all("OCR Process", filters={"status": ["in", ["Queued", "Processing"]]}, fields=["name", "status", "process_name"])
 	for ocr_process in ocr_processes:
 		try:
+			if not ocr_process.process_name:
+				continue
 			status = check_operation_progress(ocr_process.process_name)
 			if not status.done:
 				continue

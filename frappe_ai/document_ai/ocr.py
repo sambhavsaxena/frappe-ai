@@ -25,7 +25,8 @@ class OperationStatus:
 	error: dict | None = None
 
 
-def process_async_ocr_job(ocr_process: frappe._dict):
+def process_async_ocr_job(ocr_process_name: str):
+	ocr_process = frappe.get_doc("OCR Process", ocr_process_name)
 	try:
 		ocr_process.started_at = frappe.utils.now()	# completes inside cron
 		file_path = resolve_file_path(ocr_process.file_path)
@@ -72,6 +73,7 @@ def process_async_ocr_job(ocr_process: frappe._dict):
 		ocr_process.gcs_output_uri = gcs_output_uri
 		ocr_process.status = "Processing"
 		ocr_process.save(ignore_permissions=True)
+		ocr_process.reload()
 	except Exception:
 		mark_ocr_failed(ocr_process)
 
