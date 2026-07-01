@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "OCR-.#####",
+ "creation": "2026-06-22 16:30:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "file_details_section",
+  "file_path",
+  "status",
+  "column_break_npus",
+  "processing_mode",
+  "async_section",
+  "gcs_input_uri",
+  "gcs_output_uri",
+  "column_break_wjjk",
+  "process_name",
+  "section_break_nlqc",
+  "raw_response",
+  "log_section",
+  "started_at",
+  "completed_at",
+  "column_break_log",
+  "error_log"
+ ],
+ "fields": [
+  {
+   "default": "Synchronous",
+   "description": "Asynchronous processing will send the file for batch processing and a cron job will pull the response when finished. Use this for long running OCR processes.",
+   "fieldname": "processing_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Processing Mode",
+   "options": "Synchronous\nAsynchronous",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nQueued\nProcessing\nCompleted\nFailed",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "async_section",
+   "fieldtype": "Section Break",
+   "label": "Output"
+  },
+  {
+   "fieldname": "process_name",
+   "fieldtype": "Data",
+   "label": "Process Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gcs_input_uri",
+   "fieldtype": "Small Text",
+   "label": "GCS Input URI",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gcs_output_uri",
+   "fieldtype": "Small Text",
+   "label": "GCS Output URI",
+   "read_only": 1
+  },
+  {
+   "fieldname": "raw_response",
+   "fieldtype": "JSON",
+   "label": "Raw Response",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "log_section",
+   "fieldtype": "Section Break",
+   "label": "Log"
+  },
+  {
+   "fieldname": "column_break_log",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "error_log",
+   "fieldtype": "Long Text",
+   "label": "Error Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "file_path",
+   "fieldtype": "Attach",
+   "label": "File",
+   "reqd": 1
+  },
+  {
+   "fieldname": "started_at",
+   "fieldtype": "Datetime",
+   "label": "Started At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "file_details_section",
+   "fieldtype": "Section Break",
+   "label": "Process Details"
+  },
+  {
+   "fieldname": "completed_at",
+   "fieldtype": "Datetime",
+   "label": "Completed At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_npus",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wjjk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nlqc",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-07-01 00:02:30.356375",
+ "modified_by": "Administrator",
+ "module": "Frappe AI",
+ "name": "OCR Process",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

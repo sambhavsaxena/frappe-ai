@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-06-22 15:25:39.677316",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "google_cloud_account_configuration_section",
+  "project_id",
+  "location",
+  "processor_id",
+  "column_break_wpqw",
+  "service_account",
+  "cloud_storage_section",
+  "cloud_storage_bucket",
+  "input_prefix",
+  "output_prefix"
+ ],
+ "fields": [
+  {
+   "fieldname": "google_cloud_account_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Google Cloud Account Configuration"
+  },
+  {
+   "fieldname": "project_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Project ID",
+   "reqd": 1
+  },
+  {
+   "default": "us",
+   "fieldname": "location",
+   "fieldtype": "Select",
+   "label": "Location",
+   "options": "us\neu",
+   "reqd": 1
+  },
+  {
+   "description": "Full service account JSON key with Document AI + Cloud Storage access.",
+   "fieldname": "service_account",
+   "fieldtype": "JSON",
+   "label": "Service Account",
+   "not_nullable": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "cloud_storage_section",
+   "fieldtype": "Section Break",
+   "label": "Cloud Storage (Async OCR Process)"
+  },
+  {
+   "fieldname": "cloud_storage_bucket",
+   "fieldtype": "Data",
+   "label": "Cloud Storage Bucket"
+  },
+  {
+   "default": "input",
+   "fieldname": "input_prefix",
+   "fieldtype": "Data",
+   "label": "Input Prefix"
+  },
+  {
+   "default": "output",
+   "fieldname": "output_prefix",
+   "fieldtype": "Data",
+   "label": "Output Prefix"
+  },
+  {
+   "fieldname": "processor_id",
+   "fieldtype": "Data",
+   "label": "Processor ID"
+  },
+  {
+   "fieldname": "column_break_wpqw",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-06-30 16:57:31.654925",
+ "modified_by": "Administrator",
+ "module": "Frappe AI",
+ "name": "Document AI Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
