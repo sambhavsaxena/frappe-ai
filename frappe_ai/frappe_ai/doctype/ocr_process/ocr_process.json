@@ -33,6 +33,7 @@
    "in_list_view": 1,
    "label": "Processing Mode",
    "options": "Synchronous\nAsynchronous",
+   "read_only_depends_on": "eval:['Processing', 'Queued', 'Completed'].includes(doc.status)",
    "reqd": 1
   },
   {
@@ -95,7 +96,8 @@
    "fieldname": "file_path",
    "fieldtype": "Attach",
    "label": "File",
-   "reqd": 1
+   "reqd": 1,
+   "read_only_depends_on": "eval:['Processing', 'Queued', 'Completed'].includes(doc.status)"
   },
   {
    "fieldname": "started_at",
@@ -130,7 +132,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-07-01 00:02:30.356375",
+ "modified": "2026-07-01 14:40:38.094685",
  "modified_by": "Administrator",
  "module": "Frappe AI",
  "name": "OCR Process",
