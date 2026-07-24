@@ -218,7 +218,8 @@ def index_doctype_source(
     return index, metadata, vectors, "\n".join(log_lines), failed
 
 
-def run_index_job(job_name: str) -> None:
+def run_index_job(rag_job_name: str) -> None:
+    job_name = rag_job_name # job_name is passed as rag_job_name as its a reserved keyword in frappe.enqueue
     job = frappe.get_doc("RAG Index Job", job_name)
     try:
         set_job(job_name, {"status": "Running", "started_on": now_datetime()})
