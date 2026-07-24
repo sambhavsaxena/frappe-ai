@@ -21,7 +21,6 @@
   "log_section",
   "started_at",
   "completed_at",
-  "column_break_log",
   "error_log"
  ],
  "fields": [
@@ -83,10 +82,6 @@
    "label": "Log"
   },
   {
-   "fieldname": "column_break_log",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "error_log",
    "fieldtype": "Long Text",
    "label": "Error Log",
@@ -96,8 +91,8 @@
    "fieldname": "file_path",
    "fieldtype": "Attach",
    "label": "File",
-   "reqd": 1,
-   "read_only_depends_on": "eval:['Processing', 'Queued', 'Completed'].includes(doc.status)"
+   "read_only_depends_on": "eval:['Processing', 'Queued', 'Completed'].includes(doc.status)",
+   "reqd": 1
   },
   {
    "fieldname": "started_at",
@@ -132,7 +127,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-07-01 14:40:38.094685",
+ "modified": "2026-07-24 10:54:32.791787",
  "modified_by": "Administrator",
  "module": "Frappe AI",
  "name": "OCR Process",

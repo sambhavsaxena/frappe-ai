@@ -10,6 +10,10 @@ frappe.ui.form.on("OCR Process", {
 		if (["Draft", "Failed"].includes(frm.doc.status)) {
 			frm.add_custom_button(__("Start Processing"), () => start_processing(frm)).addClass("btn-primary");
 		}
+
+		if (frm.doc.status === "Processing" && frm.doc.process_name) {
+			frm.add_custom_button(__("Check Status"), () => check_status(frm));
+		}
 	},
 	file_path(frm) {
         const file_url = frm.doc.file_path;
@@ -40,4 +44,13 @@ function start_processing(frm) {
 		});
 		frm.call("start").then(() => frm.reload_doc());
 	}
+}
+
+function check_status(frm) {
+	frm.call({
+		method: "check_status",
+		doc: frm.doc,
+		freeze: true,
+		freeze_message: __("Checking status..."),
+	}).then(() => frm.reload_doc());
 }
